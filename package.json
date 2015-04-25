@@ -1,0 +1,33 @@
+{
+  "name": "Explorer",
+  "version": "1.0.0",
+  "description": "A simple RAF file explorer for League of Legends",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "lol",
+    "league",
+    "of",
+    "legends",
+    "raf",
+    ".raf"
+  ],
+  "window": {
+    "title": "Explorer",
+    "toolbar": true,
+    "width": 1400,
+    "height": 800,
+    "position": "center"
+  },
+  "author": "molenzwiebel",
+  "license": "MIT",
+  "devDependencies": {
+    "buffercursor": "0.0.12"
+  },
+  "dependencies": {
+    "istextorbinary": "^1.0.2",
+    "temp": "^0.8.1"
+  }
+}
