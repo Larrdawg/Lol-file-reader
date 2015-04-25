@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Explorer</title>
+
+    <!-- CSS -->
+    <link href="bower_components/materialize/dist/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/file_list.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+        <ul class="collection" id="content">
+            <li class="collection-header"><h4>Files</h4></li>
+        <end>
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script>
+    $(document).ready(function () {
+        console.log("READYYY");
+        var files = require('./js/raf_reader')["tree"];
+        for (var key in files) {
+            console.log(key);
+            $("#content").append("<li class='collection-item'>" + key + "</li>");
+        }
+    });
+    </script>
+</body>

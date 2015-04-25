@@ -1,9 +1,11 @@
-var fs = require("fs"),
-    path = require("path"),
-    BufferCursor = require("buffercursor"),
-    zlib = require("zlib"),
-    exec = require("child_process").execSync;
-
+var fs 				= require("fs"),
+    path 			= require("path"),
+    BufferCursor 	= require("buffercursor"),
+    zlib 			= require("zlib"),
+    exec 			= require("child_process").execSync,
+	platform  		 	= require("os").platform();
+var lolpath = platform == "win32" || platform == "win64" ? "C:/Riot Games/League of Legends/RADS/projects/lol_game_client/filearchives" :"/Applications/League of Legends.app/Contents/LoL/RADS/projects/lol_game_client/filearchives/";
+	
 function getRafFiles(basePath) {
     var contents = fs.readdirSync(basePath);
     var files = contents.map(function (file) {
@@ -106,13 +108,13 @@ function readEntry(entry) {
     }
 
     if (entry.path.indexOf(".luaobj") > -1) {
-        contents = new Buffer(exec("java -jar unluac.jar -1", {"input":contents}), 'ascii');
+        contents = new Buffer(exec("java -jar "+__dirname+"\\unluac.jar -1", {"input":contents}), 'ascii');
     }
 
     return contents;
 }
 
-var files = getRafFiles("/Applications/League of Legends.app/Contents/LoL/RADS/projects/lol_game_client/filearchives/").map(function(file) {
+var files = getRafFiles(lolpath).map(function(file) {
     return findFilesInRaf(file);
 }).reduce(function(a, b) {
     return a.concat(b);

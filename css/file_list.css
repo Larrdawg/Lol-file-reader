@@ -6,6 +6,16 @@
     list-style: none;
 }
 
+.menu {
+	float: left;
+	width: 30%;
+	height: 100%;
+}
+.mainContent {
+	float: left;
+	width: 70%;
+	height: 100%;
+}
 .css-treeview input
 {
     position: absolute;
